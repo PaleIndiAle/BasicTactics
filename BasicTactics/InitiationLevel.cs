@@ -21,6 +21,8 @@ namespace BasicTactics
         //SolidBrush blueBrush = new SolidBrush(Color.Blue);
         //SolidBrush blackBrush = new SolidBrush(Color.Black);
 
+        public static int msTime, sTime, mTime;
+
         int width = 50;
         int height = 50;
 
@@ -30,17 +32,17 @@ namespace BasicTactics
         public InitiationLevel()
         {
             InitializeComponent();
-
-            this.BackgroundImage = BasicTactics.Properties.Resources.InitiationMap;
-            this.BackgroundImageLayout = ImageLayout.Stretch;
-
             InitializeGame();
         }
 
         public void InitializeGame()
         {
+            gameTimer.Enabled = true;
             RifleInfantry rifle = new RifleInfantry(1, 50, 400);
             alliedInfantry.Add(rifle);
+
+            this.BackgroundImage = BasicTactics.Properties.Resources.InitiationMap;
+            this.BackgroundImageLayout = ImageLayout.Stretch;
 
             //for (int i = 0; i < 3; i++)
             //{
@@ -120,23 +122,36 @@ namespace BasicTactics
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            msTime++;
+
+            if (msTime == 1000)
+            {
+                sTime++;
+                msTime = 0;
+            }
+            else if (sTime == 60)
+            {
+                mTime++;
+                sTime = 0;
+            }
+
             textBox1.Text = "Capture the enemy encampment on the top right.";
 
             foreach (RifleInfantry rifle in alliedInfantry)
             {
-                if (leftArrowDown == true && pictureBox2.Location.X > 0)
+                if (leftArrowDown == true && rifle.x > 0)
                 {
                     rifle.x -= 50;
                 }
-                else if (rightArrowDown == true && pictureBox2.Location.X < 750)
+                else if (rightArrowDown == true && rifle.x < 750)
                 {
                     rifle.x += 50;
                 }
-                else if (upArrowDown == true && pictureBox2.Location.Y > 0)
+                else if (upArrowDown == true && rifle.y > 0)
                 {
                     rifle.y -= 50;
                 }
-                else if (downArrowDown == true && pictureBox2.Location.Y < 500)
+                else if (downArrowDown == true && rifle.y < 450)
                 {
                     rifle.y += 50;
                 }
@@ -163,6 +178,20 @@ namespace BasicTactics
                 pictureBox6.Image = pictureBox1.Image = BasicTactics.Properties.Resources.FriendlyCity;
                 button1.Visible = true;
                 button1.Enabled = true;
+                gameTimer.Enabled = false;
+            }
+            else if (pictureBox7.Location == pictureBox1.Location)
+            {
+                textBox1.Text = "Your main base of operations. Though you don't have permission to call reinforcements, you were still able to obtain fresh supplies for your troops.";
+            }
+            else if (pictureBox7.Location == pictureBox5.Location)
+            {
+                textBox1.Text = "A small city that has been captured by allied forces to establish a forward operating base.";
+            }
+            else if (pictureBox7.Location == pictureBox2.Location)
+            {
+                textBox1.Text = "An enemy forward operating base, one which your squad proceeds to capture from the enemy without casualties.";
+                pictureBox2.Image = BasicTactics.Properties.Resources.FriendlyCity;
             }
 
             Refresh();

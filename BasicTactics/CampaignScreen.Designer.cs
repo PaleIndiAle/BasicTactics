@@ -31,6 +31,7 @@
             this.firstLevelButton = new System.Windows.Forms.Button();
             this.soonButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // firstLevelButton
@@ -64,16 +65,29 @@
             this.titleLabel.Text = "Campaign";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(306, 71);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(180, 40);
+            this.textBox1.TabIndex = 6;
+            this.textBox1.Text = "Time:";
+            // 
             // CampaignScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.soonButton);
             this.Controls.Add(this.firstLevelButton);
             this.Name = "CampaignScreen";
             this.Size = new System.Drawing.Size(500, 300);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -82,5 +96,6 @@
         private System.Windows.Forms.Button firstLevelButton;
         private System.Windows.Forms.Button soonButton;
         private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
