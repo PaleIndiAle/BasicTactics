@@ -58,7 +58,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="BlockGen.cs" />
+    <Compile Include="RifleInfantry.cs" />
     <Compile Include="InitiationLevel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -93,6 +93,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -106,6 +107,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %289%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %288%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
