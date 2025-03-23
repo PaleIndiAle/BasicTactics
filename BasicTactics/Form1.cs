@@ -7,11 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace BasicTactics
 {
     public partial class Form1 : Form
     {
+        public static int ImsTime, IsTime, RmsTime, RsTime;
+        public static int level_condition = 1;
+
+        public static SoundPlayer gunFight = new SoundPlayer(Properties.Resources.gun_fight);
+        public static SoundPlayer walking = new SoundPlayer(Properties.Resources.moving);
+        public static SoundPlayer capture = new SoundPlayer(Properties.Resources.capture);
+
         public Form1()
         {
             InitializeComponent();

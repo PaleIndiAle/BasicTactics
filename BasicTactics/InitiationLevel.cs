@@ -21,8 +21,6 @@ namespace BasicTactics
         //SolidBrush blueBrush = new SolidBrush(Color.Blue);
         //SolidBrush blackBrush = new SolidBrush(Color.Black);
 
-        public static int msTime, sTime, mTime;
-
         int width = 50;
         int height = 50;
 
@@ -43,6 +41,14 @@ namespace BasicTactics
 
             this.BackgroundImage = BasicTactics.Properties.Resources.InitiationMap;
             this.BackgroundImageLayout = ImageLayout.Stretch;
+
+            pictureBox7.Image = BasicTactics.Properties.Resources.FriendlyIdle;
+            pictureBox6.Image = BasicTactics.Properties.Resources.HostileCity;
+            pictureBox5.Image = BasicTactics.Properties.Resources.FriendlyCity;
+            pictureBox4.Image = BasicTactics.Properties.Resources.EnemyIdle;
+            pictureBox3.Image = BasicTactics.Properties.Resources.EnemyIdle;
+            pictureBox2.Image = BasicTactics.Properties.Resources.HostileCity;
+            pictureBox1.Image = BasicTactics.Properties.Resources.FriendlyCity;
 
             //for (int i = 0; i < 3; i++)
             //{
@@ -66,17 +72,12 @@ namespace BasicTactics
 
         private void InitiationLevel_Paint(object sender, PaintEventArgs e)
         {
-            pictureBox7.Image = BasicTactics.Properties.Resources.FriendlyIdle;
-            pictureBox6.Image = BasicTactics.Properties.Resources.HostileCity;
-            pictureBox5.Image = BasicTactics.Properties.Resources.FriendlyCity;
-            pictureBox4.Image = BasicTactics.Properties.Resources.EnemyIdle;
-            pictureBox3.Image = BasicTactics.Properties.Resources.EnemyIdle;
-            pictureBox2.Image = BasicTactics.Properties.Resources.HostileCity;
-            pictureBox1.Image = BasicTactics.Properties.Resources.FriendlyCity;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Form1.level_condition = 1;
             button1.Visible = false;
             button1.Enabled = false;
             Form1.ChangeScreen(this, new CampaignScreen());
@@ -122,17 +123,12 @@ namespace BasicTactics
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
-            msTime++;
+            Form1.ImsTime += 100;
 
-            if (msTime == 1000)
+            if (Form1.ImsTime == 1000)
             {
-                sTime++;
-                msTime = 0;
-            }
-            else if (sTime == 60)
-            {
-                mTime++;
-                sTime = 0;
+                Form1.IsTime += 1;
+                Form1.ImsTime = 0;
             }
 
             textBox1.Text = "Capture the enemy encampment on the top right.";
@@ -142,10 +138,12 @@ namespace BasicTactics
                 if (leftArrowDown == true && rifle.x > 0)
                 {
                     rifle.x -= 50;
+                    pictureBox7.Image = BasicTactics.Properties.Resources.FriendlyMovingLeft;
                 }
                 else if (rightArrowDown == true && rifle.x < 750)
                 {
                     rifle.x += 50;
+                    pictureBox7.Image = BasicTactics.Properties.Resources.FriendlyMovingRight;
                 }
                 else if (upArrowDown == true && rifle.y > 0)
                 {
@@ -166,11 +164,13 @@ namespace BasicTactics
             {
                 textBox1.Text = "The enemy sees your squad approach and prepares to engage. The two exchange fire before your squad emerges victorious.";
                 pictureBox3.Visible = false;
+                Form1.gunFight.Play();
             }
             else if (pictureBox7.Location == pictureBox4.Location)
             {
                 textBox1.Text = "Your squad takes position and begin to engage the enemy. It isn't long before your squad scatters the enemy forces.";
                 pictureBox4.Visible = false;
+                Form1.gunFight.Play();
             }
             else if (pictureBox7.Location == pictureBox6.Location)
             {
@@ -179,6 +179,7 @@ namespace BasicTactics
                 button1.Visible = true;
                 button1.Enabled = true;
                 gameTimer.Enabled = false;
+                Form1.capture.Play();
             }
             else if (pictureBox7.Location == pictureBox1.Location)
             {
@@ -192,6 +193,7 @@ namespace BasicTactics
             {
                 textBox1.Text = "An enemy forward operating base, one which your squad proceeds to capture from the enemy without casualties.";
                 pictureBox2.Image = BasicTactics.Properties.Resources.FriendlyCity;
+                Form1.capture.Play();
             }
 
             Refresh();

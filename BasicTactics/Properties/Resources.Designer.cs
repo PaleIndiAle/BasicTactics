@@ -61,6 +61,15 @@ namespace BasicTactics.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream capture {
+            get {
+                return ResourceManager.GetStream("capture", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap EnemyFiring {
@@ -123,10 +132,29 @@ namespace BasicTactics.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap FriendlyMoving {
+        internal static System.Drawing.Bitmap FriendlyMovingLeft {
             get {
-                object obj = ResourceManager.GetObject("FriendlyMoving", resourceCulture);
+                object obj = ResourceManager.GetObject("FriendlyMovingLeft", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FriendlyMovingRight {
+            get {
+                object obj = ResourceManager.GetObject("FriendlyMovingRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream gun_fight {
+            get {
+                return ResourceManager.GetStream("gun fight", resourceCulture);
             }
         }
         
@@ -146,6 +174,35 @@ namespace BasicTactics.Properties {
         internal static System.Drawing.Bitmap InitiationMap {
             get {
                 object obj = ResourceManager.GetObject("InitiationMap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream moving {
+            get {
+                return ResourceManager.GetStream("moving", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RiverDangerMap {
+            get {
+                object obj = ResourceManager.GetObject("RiverDangerMap", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Water {
+            get {
+                object obj = ResourceManager.GetObject("Water", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

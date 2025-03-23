@@ -37,7 +37,7 @@
             this.ClientSize = new System.Drawing.Size(1000, 500);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Basic Tactics";
             this.ResumeLayout(false);
 
         }

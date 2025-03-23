@@ -16,17 +16,31 @@ namespace BasicTactics
         public CampaignScreen()
         {
             InitializeComponent();
-
-            textBox1.Text = $"Time: {InitiationLevel.mTime}:{InitiationLevel.sTime}";
+            textBox1.Text = $"Time: {Form1.IsTime} seconds";
+            textBox2.Text = $"Time: {Form1.RsTime} seconds";
         }
 
         private void firstLevelButton_Click(object sender, EventArgs e)
         {
             Form1.ChangeScreen(this, new InitiationLevel());
 
-            InitiationLevel.msTime = 0;
-            InitiationLevel.sTime = 0;
-            InitiationLevel.mTime = 0;
+            Form1.ImsTime = 0;
+            Form1.IsTime = 0;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Form1.level_condition == 1)
+            {
+                Form1.ChangeScreen(this, new RiverDanger());
+                Form1.RmsTime = 0;
+                Form1.RsTime = 0;
+            }
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

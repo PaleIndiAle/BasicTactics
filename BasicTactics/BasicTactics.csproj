@@ -73,6 +73,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RiverDanger.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RiverDanger.Designer.cs">
+      <DependentUpon>RiverDanger.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CampaignScreen.resx">
       <DependentUpon>CampaignScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +101,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RiverDanger.resx">
+      <DependentUpon>RiverDanger.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -140,6 +149,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\unnamed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %2811%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %2810%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\unnamed %283.2%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\690264__datbloxybirb__victory-trumpet-and-french-horn-sound-effect.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\205588__qubodup__gunfire.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\521587__fission9__hiking-boot-footsteps-on-grass.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
