@@ -89,6 +89,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
             this.Name = "RiverDanger";
             this.Size = new System.Drawing.Size(1000, 500);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.RiverDanger_Paint);

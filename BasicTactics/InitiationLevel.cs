@@ -27,6 +27,7 @@ namespace BasicTactics
         bool leftArrowDown, rightArrowDown, upArrowDown, downArrowDown;
 
         List<RifleInfantry> alliedInfantry = new List<RifleInfantry>();
+        List<RifleInfantry> enemyInfantry = new List<RifleInfantry>();
         public InitiationLevel()
         {
             InitializeComponent();
@@ -36,8 +37,15 @@ namespace BasicTactics
         public void InitializeGame()
         {
             gameTimer.Enabled = true;
-            RifleInfantry rifle = new RifleInfantry(1, 50, 400);
-            alliedInfantry.Add(rifle);
+
+            RifleInfantry f = new RifleInfantry(1, 50, 400);
+            alliedInfantry.Add(f);
+
+            RifleInfantry e1 = new RifleInfantry(0, 350, 150);
+            enemyInfantry.Add(e1);
+
+            RifleInfantry e2 = new RifleInfantry(0, 400, 150);
+            enemyInfantry.Add(e2);
 
             this.BackgroundImage = BasicTactics.Properties.Resources.InitiationMap;
             this.BackgroundImageLayout = ImageLayout.Stretch;
@@ -49,30 +57,11 @@ namespace BasicTactics
             pictureBox3.Image = BasicTactics.Properties.Resources.EnemyIdle;
             pictureBox2.Image = BasicTactics.Properties.Resources.HostileCity;
             pictureBox1.Image = BasicTactics.Properties.Resources.FriendlyCity;
-
-            //for (int i = 0; i < 3; i++)
-            //{
-            //    int x = 0;
-            //    int y = 400;
-
-            //    if (i == 0)
-            //    {
-            //        RifleInfantry rifle = new RifleInfantry(1, x, y);
-            //        alliedInfantry.Add(rifle);
-            //    }
-            //    else
-            //    {
-            //        x += 50;
-
-            //        RifleInfantry rifle = new RifleInfantry(1, x, y);
-            //        alliedInfantry.Add(rifle);
-            //    }
-            //}
         }
 
         private void InitiationLevel_Paint(object sender, PaintEventArgs e)
         {
-
+            //e.Graphics.DrawImage(BasicTactics.Properties.Resources.FriendlyIdle, );
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -133,25 +122,25 @@ namespace BasicTactics
 
             textBox1.Text = "Capture the enemy encampment on the top right.";
 
-            foreach (RifleInfantry rifle in alliedInfantry)
+            foreach (RifleInfantry f in alliedInfantry)
             {
-                if (leftArrowDown == true && rifle.x > 0)
+                if (leftArrowDown == true)
                 {
-                    rifle.x -= 50;
+                    f.Move("left");
                     pictureBox7.Image = BasicTactics.Properties.Resources.FriendlyMovingLeft;
                 }
-                else if (rightArrowDown == true && rifle.x < 750)
+                else if (rightArrowDown == true)
                 {
-                    rifle.x += 50;
+                    f.Move("right");
                     pictureBox7.Image = BasicTactics.Properties.Resources.FriendlyMovingRight;
                 }
-                else if (upArrowDown == true && rifle.y > 0)
+                else if (upArrowDown == true)
                 {
-                    rifle.y -= 50;
+                    f.Move("up");
                 }
-                else if (downArrowDown == true && rifle.y < 450)
+                else if (downArrowDown == true)
                 {
-                    rifle.y += 50;
+                    f.Move("down");
                 }
             }
 

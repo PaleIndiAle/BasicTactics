@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BasicTactics
 {
@@ -23,6 +24,26 @@ namespace BasicTactics
             luck = luckvalue.Next(0, 10);
             x = _x;
             y = _y;
+        }
+
+        public void Move(string direction)
+        {
+            if (direction == "left" && x > 0)
+            {
+                x -= 50;
+            }
+            else if (direction == "right" && x < 750)
+            {
+                x += 50;
+            }
+            else if (direction == "up" && y > 0)
+            {
+                y -= 50;
+            }
+            else if (direction == "down" && y < 450)
+            {
+                y += 50;
+            }
         }
     }
 }

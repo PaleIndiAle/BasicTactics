@@ -18,6 +18,7 @@ namespace BasicTactics
         bool leftArrowDown, rightArrowDown, upArrowDown, downArrowDown;
 
         List<RifleInfantry> alliedInfantry = new List<RifleInfantry>();
+        List<RifleInfantry> enemyInfantry = new List<RifleInfantry>();
         public RiverDanger()
         {
             InitializeComponent();
@@ -32,8 +33,8 @@ namespace BasicTactics
 
         public void InitializeGame()
         {
-            RifleInfantry rifle = new RifleInfantry(1, 750, 400);
-            alliedInfantry.Add(rifle);
+            RifleInfantry f = new RifleInfantry(1, 750, 400);
+            alliedInfantry.Add(f);
 
             gameTimer.Enabled = true;
         }
@@ -100,25 +101,25 @@ namespace BasicTactics
 
             textBox1.Text = "Destroy the enemy encampment on the top left.";
 
-            foreach (RifleInfantry rifle in alliedInfantry)
+            foreach (RifleInfantry f in alliedInfantry)
             {
-                if (leftArrowDown == true && rifle.x > 0)
+                if (leftArrowDown == true)
                 {
-                    rifle.x -= 50;
+                    f.Move("left");
                     pictureBox2.Image = BasicTactics.Properties.Resources.FriendlyMovingLeft;
                 }
-                else if (rightArrowDown == true && rifle.x < 750)
+                else if (rightArrowDown == true)
                 {
-                    rifle.x += 50;
+                    f.Move("right");
                     pictureBox2.Image = BasicTactics.Properties.Resources.FriendlyMovingRight;
                 }
-                else if (upArrowDown == true && rifle.y > 0)
+                else if (upArrowDown == true)
                 {
-                    rifle.y -= 50;
+                    f.Move("up");
                 }
-                else if (downArrowDown == true && rifle.y < 450)
+                else if (downArrowDown == true)
                 {
-                    rifle.y += 50;
+                    f.Move("down");
                 }
             }
 
